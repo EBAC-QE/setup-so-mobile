@@ -1,29 +1,11 @@
 # 🚀 Guia de Instalação – Appium + WebdriverIO + Android Studio (Linux)
 
-## 1. Instalar JDK
+## 1. Instalar Node.js e npm
 ```bash
 sudo apt update
-sudo apt install openjdk-17-jdk
-```
-
-Verifique:
-```bash
-java -version
-```
-
-Adicione ao `~/.bashrc`:
-```bash
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
-export PATH=$JAVA_HOME/bin:$PATH
-```
-
----
-
-## 2. Instalar Node.js e npm
-```bash
 sudo apt install -y nodejs npm
 ```
-ou use **nvm** para controlar versões.
+ou use **nvm** para gerenciar versões.  
 
 Verifique:
 ```bash
@@ -33,9 +15,38 @@ npm -v
 
 ---
 
+## 2. Instalar JDK
+```bash
+sudo apt install openjdk-21-jdk
+```
+
+Adicione ao `~/.bashrc`:
+```bash
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk-amd64
+export PATH=$JAVA_HOME/bin:$PATH
+```
+
+Recarregue:
+```bash
+source ~/.bashrc
+```
+
+Verifique:
+```bash
+java -version
+echo $JAVA_HOME
+```
+
+---
+
 ## 3. Instalar Android Studio
-- Baixe de [developer.android.com/studio](https://developer.android.com/studio).
-- Extraia e instale.
+- Baixe em [developer.android.com/studio](https://developer.android.com/studio).  
+- No **SDK Manager**, instale:
+  - SDK Platform (Android 13 ou 14)
+  - Android SDK Platform-tools
+  - Android SDK Build-tools
+  - Android Emulator
+  - Command-line Tools (latest)
 
 ### Variáveis de ambiente
 Adicione ao `~/.bashrc`:
@@ -54,9 +65,9 @@ sdkmanager --list
 
 ---
 
-## 4. Ativar Virtualização
-- Ativar **Intel VT-x** ou **AMD-V** na BIOS.
-- Instalar KVM:
+## 4. Virtualização
+- Ative **Intel VT-x** ou **AMD-V** na BIOS.  
+- Instale KVM:
 ```bash
 sudo apt install qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
 ```
@@ -85,8 +96,8 @@ appium-doctor --android
 ---
 
 ## 7. Instalar Appium Inspector
-- Baixe em [Appium Inspector Releases](https://github.com/appium/appium-inspector/releases).
-- Extraia e dê permissão de execução:
+- Baixe em [Appium Inspector Releases](https://github.com/appium/appium-inspector/releases).  
+- Dê permissão de execução:
 ```bash
 chmod +x Appium-Inspector.AppImage
 ./Appium-Inspector.AppImage
@@ -95,7 +106,7 @@ chmod +x Appium-Inspector.AppImage
 ---
 
 ## 8. Baixar app de teste (WebdriverIO Demo App)
-- APK disponível em:  
+- Baixe o APK:  
   [wdio-demo-app releases](https://github.com/webdriverio/native-demo-app/releases)
 
 ---
@@ -111,10 +122,10 @@ appium
 
 ## 📌 Recomendações
 - Ter pelo menos **16 GB RAM**.  
-- Instalar pacotes de 32 bits para emuladores:
+- Instalar pacotes de 32 bits:
 ```bash
 sudo dpkg --add-architecture i386
 sudo apt update
 sudo apt install libc6:i386 libstdc++6:i386
 ```
-- Configurar regras `udev` para reconhecer dispositivos Android físicos.
+- Configurar regras `udev` para dispositivos físicos.
