@@ -5,7 +5,9 @@
 Baixe de: https://nodejs.org/en/download
 
 Para saber o seu tipo de processador, via terminal rode:  `uname -m`
+
 Se aparecer x86_64 é intel 
+
 Se aparecer arm64 é apple Silicon (M1, M2, M3, etc.)
 
 Ou instale via Homebrew: 
@@ -27,6 +29,8 @@ npm -v
 
 Baixe de: https://www.oracle.com/java/technologies/downloads
 
+Ou instale via terminal:
+
 ```bash
 brew install openjdk@17
 ```
@@ -38,9 +42,13 @@ export PATH=$JAVA_HOME/bin:$PATH
 ```
 
 Salve e confirme:
-ctrl + o
-Enter
-ctrl + x
+
+CTRL + O 
+
+ENTER
+
+CTRL + X
+
 
 Recarregue o arquivo: `source ~/.zshrc`
 
@@ -159,6 +167,7 @@ appium-doctor --android
 ---
 
 ## 9. Exemplo de capabilities para o appium inspector 
+```bash
 {
   "platformName": "Android", 
   "appium:deviceName": "Medium Phone",
@@ -166,6 +175,7 @@ appium-doctor --android
   "appium:app": "/Users/prof/Desktop/App/wdio.apk",
   "appium:automationName": "UiAutomator2"
 }
+```
 
 Sendo: 
 - Android, nome do sistema operacional
